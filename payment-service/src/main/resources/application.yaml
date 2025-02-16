@@ -1,0 +1,17 @@
+server:
+  port: 8082
+
+  spring:
+    datasource:
+      url: jdbc:postgresql://${DB_HOST:localhost}:5432/paymentdb
+      username: postgres
+      password: iram
+      driverClassName: org.postgresql.Driver
+    jpa:
+      database-platform: org.hibernate.dialect.PostgreSQLDialect
+      hibernate:
+        ddl-auto: update
+    application:
+      name: PAYMENT-SERVICE
+    config:
+      import: configserver:http://localhost:9296
